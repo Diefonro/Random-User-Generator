@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--TableVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Random_User_Generator" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="TableVC" customModule="Random_User_Generator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" userLabel="Super View">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -26,18 +26,21 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qsf-yF-tLB">
                                         <rect key="frame" x="0.0" y="0.0" width="150" height="50"/>
-                                        <color key="backgroundColor" red="0.79607844350000001" green="0.25490197539999998" blue="0.19215688110000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title=" "/>
+                                        <connections>
+                                            <action selector="btnRemoveFilter:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7YC-kR-aJO"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remove Filter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2HI-X6-xFZ">
-                                        <rect key="frame" x="23" y="14.5" width="104" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                        <rect key="frame" x="19.5" y="14.5" width="111" height="21"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <color key="textColor" systemColor="linkColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <constraints>
                                     <constraint firstItem="qsf-yF-tLB" firstAttribute="centerY" secondItem="cNH-sw-U5J" secondAttribute="centerY" id="2LX-ml-LMU"/>
                                     <constraint firstAttribute="width" constant="150" id="68s-wh-36q"/>
@@ -73,15 +76,36 @@
                             <constraint firstItem="J38-mt-Bhw" firstAttribute="top" secondItem="5Xh-Uf-0no" secondAttribute="bottom" constant="5" id="yfr-Ao-X2P"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="segmentedControlFilter" destination="5Xh-Uf-0no" id="Pgc-7F-gp4"/>
+                        <outlet property="tableView" destination="J38-mt-Bhw" id="Srp-hr-3xv"/>
+                        <segue destination="nea-ed-JSO" kind="show" identifier="PersonDetailSegue" id="fpU-gD-91q"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="18.840579710144929" y="69.642857142857139"/>
         </scene>
+        <!--PersonDetail-->
+        <scene sceneID="rab-W0-WAm">
+            <objects>
+                <viewControllerPlaceholder storyboardName="PersonDetail" id="nea-ed-JSO" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Jpi-Yd-UzR"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MYS-By-B9E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="567" y="70"/>
+        </scene>
     </scenes>
     <resources>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
