@@ -17,7 +17,7 @@ struct User: Decodable{
     var location: Location?
     var email: String?
     var dob: DateOfBirth?
-    var phone: Int?
+    var phone: String?
 }
 
 struct Name: Decodable{
