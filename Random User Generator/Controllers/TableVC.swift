@@ -13,7 +13,6 @@ class TableVC: UIViewController {
     @IBOutlet var tableView: UITableView?
     @IBOutlet var segmentedControlFilter: UISegmentedControl?
     
-    let testArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
     
     var users: [User] = [] {
             didSet {
@@ -55,14 +54,15 @@ extension TableVC: UITableViewDelegate{
 
 extension TableVC: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return testArray.count
+        return users.count
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let customCell = tableView.dequeueReusableCell(withIdentifier: "CustomCell", for: indexPath)
-
-        return customCell
+        let customCell = tableView.dequeueReusableCell(withIdentifier: "CustomCell", for: indexPath) as? CustomTableViewCell
+        let person = users[indexPath.row]
+        customCell?.lblPersonName?.text = "\(person.name?.first ?? "") \(person.name?.last ?? "")"
+        return customCell!
     }
     
     
