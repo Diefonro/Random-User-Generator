@@ -20,6 +20,7 @@
 		2EE970FC28B032A300F38436 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE970FB28B032A300F38436 /* Model.swift */; };
 		2EE970FF28B0343C00F38436 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 2EE970FE28B0343C00F38436 /* Alamofire */; };
 		2EE9710228B0345300F38436 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 2EE9710128B0345300F38436 /* Kingfisher */; };
+		2EE9710528B04D7D00F38436 /* DateDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE9710428B04D7D00F38436 /* DateDecoder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		2EE970F328AEC64300F38436 /* PersonDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PersonDetail.storyboard; sourceTree = "<group>"; };
 		2EE970F828B0327600F38436 /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 		2EE970FB28B032A300F38436 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		2EE9710428B04D7D00F38436 /* DateDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateDecoder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 		2EE970F728B0325100F38436 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				2EE9710328B04D6C00F38436 /* DateDecoder */,
 				2EE970FA28B0329500F38436 /* Model */,
 				2EE970F828B0327600F38436 /* APIRequest.swift */,
 			);
@@ -116,6 +119,14 @@
 				2EE970FB28B032A300F38436 /* Model.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		2EE9710328B04D6C00F38436 /* DateDecoder */ = {
+			isa = PBXGroup;
+			children = (
+				2EE9710428B04D7D00F38436 /* DateDecoder.swift */,
+			);
+			path = DateDecoder;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -198,6 +209,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2EE9710528B04D7D00F38436 /* DateDecoder.swift in Sources */,
 				2EE970FC28B032A300F38436 /* Model.swift in Sources */,
 				2EE970F128AEC62400F38436 /* PersonDetailVC.swift in Sources */,
 				2ED9195028AEBAD500294FC0 /* TableVC.swift in Sources */,

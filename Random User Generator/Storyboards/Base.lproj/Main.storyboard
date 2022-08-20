@@ -21,11 +21,21 @@
                                 <rect key="frame" x="0.0" y="104" width="414" height="758"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="5Xh-Uf-0no">
+                                <rect key="frame" x="20" y="49" width="124" height="46"/>
+                                <segments>
+                                    <segment title="Male"/>
+                                    <segment title="Female"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentedControlAction:" destination="BYZ-38-t0r" eventType="valueChanged" id="uAs-HS-3ab"/>
+                                </connections>
+                            </segmentedControl>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cNH-sw-U5J" userLabel="Remove Filter View">
-                                <rect key="frame" x="15" y="49" width="150" height="50"/>
+                                <rect key="frame" x="244" y="49" width="150" height="45"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qsf-yF-tLB">
-                                        <rect key="frame" x="0.0" y="0.0" width="150" height="50"/>
+                                        <rect key="frame" x="61" y="7" width="28" height="31"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title=" "/>
@@ -34,7 +44,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remove Filter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2HI-X6-xFZ">
-                                        <rect key="frame" x="19.5" y="14.5" width="111" height="21"/>
+                                        <rect key="frame" x="19.5" y="12" width="111" height="21"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <color key="textColor" systemColor="linkColor"/>
                                         <nil key="highlightedColor"/>
@@ -46,37 +56,28 @@
                                     <constraint firstAttribute="width" constant="150" id="68s-wh-36q"/>
                                     <constraint firstItem="qsf-yF-tLB" firstAttribute="centerX" secondItem="cNH-sw-U5J" secondAttribute="centerX" id="CvM-3c-UR2"/>
                                     <constraint firstItem="2HI-X6-xFZ" firstAttribute="centerY" secondItem="cNH-sw-U5J" secondAttribute="centerY" id="MDc-zt-kG2"/>
-                                    <constraint firstItem="qsf-yF-tLB" firstAttribute="leading" secondItem="cNH-sw-U5J" secondAttribute="leading" id="Mz3-zX-63J"/>
-                                    <constraint firstItem="qsf-yF-tLB" firstAttribute="top" secondItem="cNH-sw-U5J" secondAttribute="top" id="cRZ-VE-7ip"/>
                                     <constraint firstItem="2HI-X6-xFZ" firstAttribute="centerX" secondItem="cNH-sw-U5J" secondAttribute="centerX" id="v9Z-7n-Tnr"/>
-                                    <constraint firstAttribute="bottom" secondItem="qsf-yF-tLB" secondAttribute="bottom" id="zC3-w6-yRa"/>
                                 </constraints>
                             </view>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="5Xh-Uf-0no">
-                                <rect key="frame" x="265" y="49" width="139" height="51"/>
-                                <segments>
-                                    <segment title="Male"/>
-                                    <segment title="Female"/>
-                                </segments>
-                            </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5Xh-Uf-0no" secondAttribute="trailing" constant="10" id="5pr-fp-j1a"/>
-                            <constraint firstItem="cNH-sw-U5J" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="5" id="B5p-tz-tig"/>
-                            <constraint firstItem="5Xh-Uf-0no" firstAttribute="leading" secondItem="cNH-sw-U5J" secondAttribute="trailing" constant="100" id="Cxt-cU-XKg"/>
+                            <constraint firstItem="J38-mt-Bhw" firstAttribute="top" secondItem="5Xh-Uf-0no" secondAttribute="bottom" constant="10" id="A2A-ad-a4y"/>
+                            <constraint firstItem="5Xh-Uf-0no" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Dmp-TA-fnP"/>
+                            <constraint firstItem="J38-mt-Bhw" firstAttribute="top" secondItem="cNH-sw-U5J" secondAttribute="bottom" constant="10" id="HgU-Cy-r4S"/>
+                            <constraint firstItem="cNH-sw-U5J" firstAttribute="leading" secondItem="5Xh-Uf-0no" secondAttribute="trailing" constant="100" id="L4L-zX-Uku"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="J38-mt-Bhw" secondAttribute="trailing" id="LIb-cu-96W"/>
-                            <constraint firstItem="J38-mt-Bhw" firstAttribute="top" secondItem="cNH-sw-U5J" secondAttribute="bottom" constant="5" id="XBc-fN-kwH"/>
-                            <constraint firstItem="5Xh-Uf-0no" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="5" id="cE1-cF-KEM"/>
+                            <constraint firstItem="cNH-sw-U5J" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="5" id="VyD-mr-8rl"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cNH-sw-U5J" secondAttribute="trailing" constant="20" id="Zr8-cW-6t7"/>
                             <constraint firstItem="J38-mt-Bhw" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="60" id="fmg-PT-LXf"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="J38-mt-Bhw" secondAttribute="bottom" id="mcy-bf-3T0"/>
-                            <constraint firstItem="cNH-sw-U5J" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="tKj-6d-Meu"/>
                             <constraint firstItem="J38-mt-Bhw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="unu-K5-mXi"/>
-                            <constraint firstItem="J38-mt-Bhw" firstAttribute="top" secondItem="5Xh-Uf-0no" secondAttribute="bottom" constant="5" id="yfr-Ao-X2P"/>
+                            <constraint firstItem="5Xh-Uf-0no" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="5" id="vId-E4-Z7w"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="removeFilterBtnView" destination="cNH-sw-U5J" id="IEq-Q9-Oa0"/>
                         <outlet property="segmentedControlFilter" destination="5Xh-Uf-0no" id="Pgc-7F-gp4"/>
                         <outlet property="tableView" destination="J38-mt-Bhw" id="Srp-hr-3xv"/>
                         <segue destination="nea-ed-JSO" kind="show" identifier="PersonDetailSegue" id="fpU-gD-91q"/>

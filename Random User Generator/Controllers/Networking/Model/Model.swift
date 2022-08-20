@@ -18,6 +18,7 @@ struct User: Decodable{
     var email: String?
     var dob: DateOfBirth?
     var phone: String?
+    var picture: Picture?
 }
 
 struct Name: Decodable{
@@ -33,11 +34,16 @@ struct Location: Decodable{
 }
 
 struct DateOfBirth: Decodable{
-    var date: String?
+    var date: Date?
     var age: Int?
 }
 
 struct Street: Decodable{
     var number: Int?
     var name: String?
+}
+
+struct Picture: Decodable{
+    var large: String?
+    var thumbnail: String?
 }
