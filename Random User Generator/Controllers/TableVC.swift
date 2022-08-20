@@ -50,8 +50,9 @@ class TableVC: UIViewController {
     }
     
     @IBAction func btnRemoveFilter(_ sender: Any) {
-//        APIRequest.shared.url = APIRequest.shared.urlAfterFilter
-//        retrieveUsers()
+        removeFilterBtnView.backgroundColor = .darkGray
+        APIRequest.shared.url = APIRequest.shared.urlAfterFilter
+        retrieveUsers()
     }
     
     
