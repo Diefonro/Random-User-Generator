@@ -103,8 +103,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Street 123, City, Country" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9T6-4X-LUb">
-                                <rect key="frame" x="20" y="840" width="186" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Street 123, City, Country" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9T6-4X-LUb">
+                                <rect key="frame" x="20" y="840" width="344" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -138,6 +138,7 @@
                             <constraint firstItem="2ZA-Fm-dIo" firstAttribute="top" secondItem="hGq-Bu-bza" secondAttribute="bottom" constant="10" id="gSn-O5-fDh"/>
                             <constraint firstItem="B05-a8-izB" firstAttribute="top" secondItem="tH9-ad-e27" secondAttribute="bottom" constant="10" id="gbX-VT-kNN"/>
                             <constraint firstItem="W40-zq-Hi8" firstAttribute="top" secondItem="SE5-De-6Z8" secondAttribute="bottom" constant="10" id="iAp-Zb-DVb"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="9T6-4X-LUb" secondAttribute="trailing" constant="50" id="j0B-Sp-esn"/>
                             <constraint firstItem="Neg-t3-I7L" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="mbH-XC-nz3"/>
                             <constraint firstItem="hGq-Bu-bza" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="sCO-FL-Sd2"/>
                             <constraint firstItem="aYr-d2-s84" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="10" id="sJ2-x4-8ta"/>
@@ -149,11 +150,16 @@
                     </view>
                     <connections>
                         <outlet property="lblPersonAddress" destination="9T6-4X-LUb" id="g92-zR-Ubg"/>
+                        <outlet property="lblPersonAddressTitle" destination="Wov-Xq-Jhd" id="2Xu-Qy-AIB"/>
                         <outlet property="lblPersonBirthdate" destination="2ZA-Fm-dIo" id="z2a-fa-ENd"/>
+                        <outlet property="lblPersonBirthdateTitle" destination="hGq-Bu-bza" id="svA-MT-Sj0"/>
                         <outlet property="lblPersonEmail" destination="U0U-gu-WxI" id="Trm-7i-N9W"/>
+                        <outlet property="lblPersonEmailTitle" destination="7JW-fj-bzb" id="lAH-0z-clJ"/>
                         <outlet property="lblPersonGender" destination="Neg-t3-I7L" id="CB7-6F-RGT"/>
+                        <outlet property="lblPersonGenderTitle" destination="aa3-OV-RhP" id="shB-z8-L2P"/>
                         <outlet property="lblPersonName" destination="SE5-De-6Z8" id="36S-IC-qVl"/>
                         <outlet property="lblPersonPhone" destination="B05-a8-izB" id="NUk-lU-ooX"/>
+                        <outlet property="lblPersonPhoneTitle" destination="tH9-ad-e27" id="MKp-Xu-jzv"/>
                         <outlet property="personImage" destination="W40-zq-Hi8" id="vFY-yn-v3z"/>
                         <outlet property="pullView" destination="aYr-d2-s84" id="bBi-5A-AyW"/>
                     </connections>
