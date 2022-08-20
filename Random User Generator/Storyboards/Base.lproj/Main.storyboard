@@ -22,7 +22,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="5Xh-Uf-0no">
-                                <rect key="frame" x="20" y="49" width="124" height="46"/>
+                                <rect key="frame" x="20" y="49" width="129" height="46"/>
                                 <segments>
                                     <segment title="Male"/>
                                     <segment title="Female"/>
@@ -35,7 +35,7 @@
                                 <rect key="frame" x="244" y="49" width="150" height="45"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qsf-yF-tLB">
-                                        <rect key="frame" x="61" y="7" width="28" height="31"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="150" height="45"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title=" "/>
@@ -52,31 +52,66 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <constraints>
-                                    <constraint firstItem="qsf-yF-tLB" firstAttribute="centerY" secondItem="cNH-sw-U5J" secondAttribute="centerY" id="2LX-ml-LMU"/>
+                                    <constraint firstAttribute="trailing" secondItem="qsf-yF-tLB" secondAttribute="trailing" id="28X-Nf-Sws"/>
+                                    <constraint firstAttribute="bottom" secondItem="qsf-yF-tLB" secondAttribute="bottom" id="5d4-tm-BfQ"/>
                                     <constraint firstAttribute="width" constant="150" id="68s-wh-36q"/>
-                                    <constraint firstItem="qsf-yF-tLB" firstAttribute="centerX" secondItem="cNH-sw-U5J" secondAttribute="centerX" id="CvM-3c-UR2"/>
                                     <constraint firstItem="2HI-X6-xFZ" firstAttribute="centerY" secondItem="cNH-sw-U5J" secondAttribute="centerY" id="MDc-zt-kG2"/>
+                                    <constraint firstItem="qsf-yF-tLB" firstAttribute="leading" secondItem="cNH-sw-U5J" secondAttribute="leading" id="c0O-MV-DFc"/>
+                                    <constraint firstItem="qsf-yF-tLB" firstAttribute="top" secondItem="cNH-sw-U5J" secondAttribute="top" id="iB7-II-UgU"/>
                                     <constraint firstItem="2HI-X6-xFZ" firstAttribute="centerX" secondItem="cNH-sw-U5J" secondAttribute="centerX" id="v9Z-7n-Tnr"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NoX-IE-pAw" userLabel="Refresh View">
+                                <rect key="frame" x="169" y="49" width="55" height="45"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xgH-u5-41m">
+                                        <rect key="frame" x="0.0" y="0.0" width="55" height="45"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title=" "/>
+                                        <connections>
+                                            <action selector="refreshViewBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="P8N-U7-C6L"/>
+                                        </connections>
+                                    </button>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow.triangle.2.circlepath" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Qkq-f0-wAR">
+                                        <rect key="frame" x="0.0" y="0.5" width="55" height="44"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="1l8-R3-HF4"/>
+                                    <constraint firstAttribute="bottom" secondItem="xgH-u5-41m" secondAttribute="bottom" id="DXo-rG-h1x"/>
+                                    <constraint firstItem="xgH-u5-41m" firstAttribute="top" secondItem="NoX-IE-pAw" secondAttribute="top" id="EPf-oa-K5t"/>
+                                    <constraint firstItem="xgH-u5-41m" firstAttribute="leading" secondItem="NoX-IE-pAw" secondAttribute="leading" id="ItP-uN-10C"/>
+                                    <constraint firstAttribute="width" constant="55" id="Lqc-wj-pIf"/>
+                                    <constraint firstAttribute="trailing" secondItem="xgH-u5-41m" secondAttribute="trailing" id="gBS-AY-n1h"/>
+                                    <constraint firstAttribute="bottom" secondItem="Qkq-f0-wAR" secondAttribute="bottom" id="hDE-7B-mlm"/>
+                                    <constraint firstItem="Qkq-f0-wAR" firstAttribute="top" secondItem="NoX-IE-pAw" secondAttribute="top" id="kIl-wB-T9d"/>
+                                    <constraint firstAttribute="trailing" secondItem="Qkq-f0-wAR" secondAttribute="trailing" id="n3b-iI-IJf"/>
+                                    <constraint firstItem="Qkq-f0-wAR" firstAttribute="leading" secondItem="NoX-IE-pAw" secondAttribute="leading" id="zLA-Mz-bIn"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="NoX-IE-pAw" firstAttribute="leading" secondItem="5Xh-Uf-0no" secondAttribute="trailing" constant="20" id="8DA-cQ-8SF"/>
                             <constraint firstItem="J38-mt-Bhw" firstAttribute="top" secondItem="5Xh-Uf-0no" secondAttribute="bottom" constant="10" id="A2A-ad-a4y"/>
                             <constraint firstItem="5Xh-Uf-0no" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Dmp-TA-fnP"/>
                             <constraint firstItem="J38-mt-Bhw" firstAttribute="top" secondItem="cNH-sw-U5J" secondAttribute="bottom" constant="10" id="HgU-Cy-r4S"/>
-                            <constraint firstItem="cNH-sw-U5J" firstAttribute="leading" secondItem="5Xh-Uf-0no" secondAttribute="trailing" constant="100" id="L4L-zX-Uku"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="J38-mt-Bhw" secondAttribute="trailing" id="LIb-cu-96W"/>
                             <constraint firstItem="cNH-sw-U5J" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="5" id="VyD-mr-8rl"/>
+                            <constraint firstItem="cNH-sw-U5J" firstAttribute="leading" secondItem="NoX-IE-pAw" secondAttribute="trailing" constant="20" id="WNA-Yi-H1Z"/>
+                            <constraint firstItem="J38-mt-Bhw" firstAttribute="top" secondItem="NoX-IE-pAw" secondAttribute="bottom" constant="10" id="X90-en-Uh9"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cNH-sw-U5J" secondAttribute="trailing" constant="20" id="Zr8-cW-6t7"/>
                             <constraint firstItem="J38-mt-Bhw" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="60" id="fmg-PT-LXf"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="J38-mt-Bhw" secondAttribute="bottom" id="mcy-bf-3T0"/>
                             <constraint firstItem="J38-mt-Bhw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="unu-K5-mXi"/>
                             <constraint firstItem="5Xh-Uf-0no" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="5" id="vId-E4-Z7w"/>
+                            <constraint firstItem="NoX-IE-pAw" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="5" id="yGv-9e-XLD"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="refreshBtnView" destination="NoX-IE-pAw" id="NFo-kI-EoX"/>
                         <outlet property="removeFilterBtnView" destination="cNH-sw-U5J" id="IEq-Q9-Oa0"/>
                         <outlet property="segmentedControlFilter" destination="5Xh-Uf-0no" id="Pgc-7F-gp4"/>
                         <outlet property="tableView" destination="J38-mt-Bhw" id="Srp-hr-3xv"/>
@@ -99,6 +134,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.triangle.2.circlepath" catalog="system" width="128" height="101"/>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

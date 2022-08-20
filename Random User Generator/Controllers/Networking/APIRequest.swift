@@ -7,10 +7,13 @@
 
 import Foundation
 import Alamofire
+import UIKit
 
 class APIRequest {
     
     static let shared = APIRequest()
+    
+    var apiError = false
     
     var urlAfterFilter = "https://randomuser.me/api/?results=20&inc=gender,name,email,picture,phone,location,id,dob&noinfo"
     
@@ -25,8 +28,10 @@ class APIRequest {
             if let person = response.value?.results{
                 completion(person, nil)
             } else {
-                print(response.error?.responseCode ?? "Unknown error")
+                self.apiError = true
+                print(response.error?.responseCode ?? "API not working. Please refresh using refresh button.")
                 completion(nil, response.error)
+               
             }
         }
         

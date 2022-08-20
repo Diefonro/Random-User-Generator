@@ -13,7 +13,8 @@ class TableVC: UIViewController {
     
     @IBOutlet var tableView: UITableView?
     @IBOutlet var segmentedControlFilter: UISegmentedControl?
-    @IBOutlet var removeFilterBtnView: UIView!
+    @IBOutlet var removeFilterBtnView: UIView?
+    @IBOutlet var refreshBtnView: UIView?
     
     
     var users: [User] = [] {
@@ -22,13 +23,39 @@ class TableVC: UIViewController {
         }
     }
     
+    var buttonIsActive = false
+    var refreshWasTapped = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView?.delegate = self
         tableView?.dataSource = self
         tableView?.register(UINib(nibName: "CustomTableViewCell", bundle: nil), forCellReuseIdentifier: "CustomCell")
         retrieveUsers()
-        removeFilterBtnView.layer.cornerRadius = 6
+        removeFilterBtnView?.layer.cornerRadius = 6
+        refreshBtnView?.layer.cornerRadius = 50
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if APIRequest.shared.apiError {
+            DispatchQueue.main.async {
+                let alert = UIAlertController(title: "API not working", message: "Please tap on refresh button to try again", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+                    switch action.style{
+                        case .default:
+                        print("default")
+                        case .cancel:
+                        print("cancel")
+                        case .destructive:
+                        print("destructive")
+                        default:
+                        print("Unknown error")
+                            
+                    }
+                }))
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
     }
     
     func retrieveUsers(){
@@ -37,6 +64,19 @@ class TableVC: UIViewController {
                 self.users = users
             }
         }
+    }
+    
+    
+    @IBAction func refreshViewBtn(_ sender: Any) {
+        retrieveUsers()
+        refreshWasTapped = true
+        if refreshWasTapped {
+                UIView.animate(withDuration: 0.25) {
+                    self.refreshBtnView?.backgroundColor = .systemGray4
+                    self.refreshBtnView?.backgroundColor = .clear
+                    self.refreshWasTapped = false
+                }
+            }
     }
     
     @IBAction func segmentedControlAction(_ sender: Any) {
@@ -50,9 +90,17 @@ class TableVC: UIViewController {
     }
     
     @IBAction func btnRemoveFilter(_ sender: Any) {
-        removeFilterBtnView.backgroundColor = .darkGray
         APIRequest.shared.url = APIRequest.shared.urlAfterFilter
         retrieveUsers()
+        buttonIsActive = true
+        if buttonIsActive {
+                UIView.animate(withDuration: 0.25) {
+                    self.removeFilterBtnView?.backgroundColor = .systemGray4
+                    self.removeFilterBtnView?.backgroundColor = .systemGray6
+                    self.buttonIsActive = false
+                }
+            }
+            
     }
     
     
