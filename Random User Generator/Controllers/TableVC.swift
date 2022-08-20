@@ -40,13 +40,13 @@ class TableVC: UIViewController {
     }
     
     @IBAction func segmentedControlAction(_ sender: Any) {
-//        switch segmentedControlFilter?.selectedSegmentIndex{
-//        case 0: APIRequest.shared.url = APIRequest.shared.urlMale
-//            retrieveUsers()
-//        case 1: APIRequest.shared.url = APIRequest.shared.urlFemale
-//            retrieveUsers()
-//        default: print("Unknown segment")
-//        }
+        switch segmentedControlFilter?.selectedSegmentIndex{
+        case 0: APIRequest.shared.url = APIRequest.shared.urlMale
+            retrieveUsers()
+        case 1: APIRequest.shared.url = APIRequest.shared.urlFemale
+            retrieveUsers()
+        default: print("Unknown segment")
+        }
     }
     
     @IBAction func btnRemoveFilter(_ sender: Any) {
