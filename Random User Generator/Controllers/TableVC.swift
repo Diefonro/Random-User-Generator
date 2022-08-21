@@ -15,6 +15,7 @@ class TableVC: UIViewController {
     @IBOutlet var segmentedControlFilter: UISegmentedControl?
     @IBOutlet var removeFilterBtnView: UIView?
     @IBOutlet var refreshBtnView: UIView?
+    @IBOutlet var activityIndicatorView: UIActivityIndicatorView?
     
     
     var users: [User] = [] {
@@ -31,26 +32,33 @@ class TableVC: UIViewController {
         tableView?.delegate = self
         tableView?.dataSource = self
         tableView?.register(UINib(nibName: "CustomTableViewCell", bundle: nil), forCellReuseIdentifier: "CustomCell")
+        activityIndicatorView?.startAnimating()
         retrieveUsers()
         removeFilterBtnView?.layer.cornerRadius = 6
         refreshBtnView?.layer.cornerRadius = 50
+        activityIndicatorView?.hidesWhenStopped = true
+
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        
+    }
+    
+    func showAlert(){
         if APIRequest.shared.apiError {
             DispatchQueue.main.async {
                 let alert = UIAlertController(title: "API not working", message: "Please tap on refresh button to try again", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
                     switch action.style{
-                        case .default:
+                    case .default:
                         print("default")
-                        case .cancel:
+                    case .cancel:
                         print("cancel")
-                        case .destructive:
+                    case .destructive:
                         print("destructive")
-                        default:
+                    default:
                         print("Unknown error")
-                            
+                        
                     }
                 }))
                 self.present(alert, animated: true, completion: nil)
@@ -59,11 +67,19 @@ class TableVC: UIViewController {
     }
     
     func retrieveUsers(){
-        APIRequest.shared.retrieveUsers { users, error in
-            if let users = users {
+        
+        self.activityIndicatorView?.startAnimating()
+        
+        APIRequest.shared.retrieveUsers { user in
+            self.activityIndicatorView?.stopAnimating()
+            if let users = user {
                 self.users = users
             }
+        } failure: { error in
+            self.activityIndicatorView?.stopAnimating()
+            self.showAlert()
         }
+        
     }
     
     
@@ -71,36 +87,41 @@ class TableVC: UIViewController {
         retrieveUsers()
         refreshWasTapped = true
         if refreshWasTapped {
-                UIView.animate(withDuration: 0.25) {
-                    self.refreshBtnView?.backgroundColor = .systemGray4
-                    self.refreshBtnView?.backgroundColor = .clear
-                    self.refreshWasTapped = false
-                }
+            UIView.animate(withDuration: 0.25) {
+                self.refreshBtnView?.backgroundColor = .systemGray4
+                self.refreshBtnView?.backgroundColor = .clear
+                self.refreshWasTapped = false
             }
+        }
     }
     
     @IBAction func segmentedControlAction(_ sender: Any) {
         switch segmentedControlFilter?.selectedSegmentIndex{
-        case 0: APIRequest.shared.url = APIRequest.shared.urlMale
+        case 0:
+            activityIndicatorView?.startAnimating()
+            APIRequest.shared.url = APIRequest.shared.urlMale
             retrieveUsers()
-        case 1: APIRequest.shared.url = APIRequest.shared.urlFemale
+        case 1:
+            activityIndicatorView?.startAnimating()
+            APIRequest.shared.url = APIRequest.shared.urlFemale
             retrieveUsers()
         default: print("Unknown segment")
         }
     }
     
     @IBAction func btnRemoveFilter(_ sender: Any) {
+        activityIndicatorView?.startAnimating()
         APIRequest.shared.url = APIRequest.shared.urlAfterFilter
         retrieveUsers()
         buttonIsActive = true
         if buttonIsActive {
-                UIView.animate(withDuration: 0.25) {
-                    self.removeFilterBtnView?.backgroundColor = .systemGray4
-                    self.removeFilterBtnView?.backgroundColor = .systemGray6
-                    self.buttonIsActive = false
-                }
+            UIView.animate(withDuration: 0.25) {
+                self.removeFilterBtnView?.backgroundColor = .systemGray4
+                self.removeFilterBtnView?.backgroundColor = .systemGray6
+                self.buttonIsActive = false
             }
-            
+        }
+        
     }
     
     
