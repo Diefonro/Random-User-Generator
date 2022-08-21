@@ -23,11 +23,16 @@ class TableVC: UIViewController {
         }
     }
     
+    var refreshControl = UIRefreshControl()
     var buttonIsActive = false
     var refreshWasTapped = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView?.isUserInteractionEnabled = true
+        refreshControl.addTarget(self, action: #selector(swipedDownToRefresh), for: UIControl.Event.valueChanged)
+        tableView?.addSubview(refreshControl)
+        
         tableView?.delegate = self
         tableView?.dataSource = self
         tableView?.register(UINib(nibName: "CustomTableViewCell", bundle: nil), forCellReuseIdentifier: "CustomCell")
@@ -37,6 +42,16 @@ class TableVC: UIViewController {
         refreshBtnView?.layer.cornerRadius = 50
         activityIndicatorView?.hidesWhenStopped = true
 
+    }
+    
+    @objc func swipedDownToRefresh(_ sender: UIRefreshControl){
+        DispatchQueue.main.async {
+            self.retrieveUsers()
+            self.activityIndicatorView?.isHidden = true
+            self.tableView?.reloadData()
+            self.refreshControl.endRefreshing()
+        }
+     
     }
     
     override func viewDidAppear(_ animated: Bool) {

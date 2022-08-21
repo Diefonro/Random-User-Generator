@@ -49,6 +49,7 @@ class PersonDetailVC: UIViewController {
                 lblPersonAddressTitle?.text = "\(user!.name?.first ?? "")'s address"
                 lblPersonBirthdate?.text = "\(user!.dob?.date ?? Date()),  \(user!.dob?.age ?? 0) years old."
                 lblPersonBirthdateTitle?.text = "\(user!.name?.first ?? "")'s birthdate"
+        pullView?.layer.cornerRadius = 3
     }
     
 }
