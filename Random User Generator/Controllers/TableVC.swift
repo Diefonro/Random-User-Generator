@@ -41,7 +41,7 @@ class TableVC: UIViewController {
         removeFilterBtnView?.layer.cornerRadius = 6
         refreshBtnView?.layer.cornerRadius = 50
         activityIndicatorView?.hidesWhenStopped = true
-
+        
     }
     
     @objc func swipedDownToRefresh(_ sender: UIRefreshControl){
@@ -51,7 +51,23 @@ class TableVC: UIViewController {
             self.tableView?.reloadData()
             self.refreshControl.endRefreshing()
         }
-     
+        
+    }
+    
+    func setKeys(){
+        UserDefaults.standard.set("Base endpoint was saved", forKey: APIRequest.shared.url)
+        UserDefaults.standard.set("Male endpoint was saved", forKey: APIRequest.shared.urlMale)
+        UserDefaults.standard.set("Female endpoint was saved", forKey: APIRequest.shared.urlFemale)
+        UserDefaults.standard.synchronize()
+    }
+    
+    // Se recupera el valor ya guardado
+    func getKeys(){
+        if let valueBase = UserDefaults.standard.string(forKey: APIRequest.shared.url), let valueFemale = UserDefaults.standard.string(forKey: APIRequest.shared.urlFemale), let valueMale = UserDefaults.standard.string(forKey: APIRequest.shared.urlMale){
+            print("Data was saved correclty, keys are: \(valueBase), \(valueFemale) y \(valueMale)")
+        } else {
+            print("No hay valores guardados")
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
