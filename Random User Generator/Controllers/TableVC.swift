@@ -17,7 +17,6 @@ class TableVC: UIViewController {
     @IBOutlet var refreshBtnView: UIView?
     @IBOutlet var activityIndicatorView: UIActivityIndicatorView?
     
-    
     var users: [User] = [] {
         didSet {
             tableView?.reloadData()
@@ -44,6 +43,22 @@ class TableVC: UIViewController {
         
     }
     
+    func retrieveUsers(){
+        
+        self.activityIndicatorView?.startAnimating()
+        
+        APIRequest.shared.retrieveUsers { user in
+            self.activityIndicatorView?.stopAnimating()
+            if let users = user {
+                self.users = users
+            }
+        } failure: { error in
+            self.activityIndicatorView?.stopAnimating()
+            self.showAlert()
+        }
+        
+    }
+    
     func showAlert(){
         if APIRequest.shared.apiError {
             DispatchQueue.main.async {
@@ -64,22 +79,6 @@ class TableVC: UIViewController {
                 self.present(alert, animated: true, completion: nil)
             }
         }
-    }
-    
-    func retrieveUsers(){
-        
-        self.activityIndicatorView?.startAnimating()
-        
-        APIRequest.shared.retrieveUsers { user in
-            self.activityIndicatorView?.stopAnimating()
-            if let users = user {
-                self.users = users
-            }
-        } failure: { error in
-            self.activityIndicatorView?.stopAnimating()
-            self.showAlert()
-        }
-        
     }
     
     

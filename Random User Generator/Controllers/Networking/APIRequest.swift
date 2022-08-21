@@ -30,7 +30,7 @@ class APIRequest {
             } else {
                 failure(response.error)
                 self.apiError = true
-                print(response.error?.responseCode ?? "API not working. Please refresh using refresh button.")
+                print(response.error?.responseCode ?? "API is not working. Please use refresh button.")
             }
         }
         
