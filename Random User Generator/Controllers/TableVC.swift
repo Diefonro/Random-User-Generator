@@ -66,7 +66,7 @@ class TableVC: UIViewController {
         if let valueBase = UserDefaults.standard.string(forKey: APIRequest.shared.url), let valueFemale = UserDefaults.standard.string(forKey: APIRequest.shared.urlFemale), let valueMale = UserDefaults.standard.string(forKey: APIRequest.shared.urlMale){
             print("Data was saved correclty, keys are: \(valueBase), \(valueFemale) y \(valueMale)")
         } else {
-            print("No hay valores guardados")
+            print("There's no data saved")
         }
     }
     
